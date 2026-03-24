@@ -7,6 +7,8 @@
 
     <h1>PHP - Emokonijn</h1>
 
+    <h2>Hoe vaak komen scores voor? </h2>
+    <p>De score van het bovenste konijn wordt bijgehouden per konijn en appart in een folder "score"</p>
     <?php
         //*  EmoKonijn.php heeft toegang tot de functies van: Konijnen.php, score.php
 
@@ -54,12 +56,20 @@
         echo "</tr>";
 
         echo "<tr>";
-        foreach ($rij2 as $konijn) {
-            echo "<td>" . $konijn->voeten . "</td>";         
+        foreach ($rij2 as $index => $konijn) {
+            echo "<td>";
+
+            echo $konijn->voeten;
+
+            // score hoort bij bovenste konijn
+            $score = $scores[$index] ?? 0;
+
+            echo "<br>Score: " . $score;
+
+            echo "</td>";
         }
+
         echo "</tr>";
-
-
         echo"</table>";
 
     ?>

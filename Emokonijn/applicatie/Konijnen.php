@@ -35,36 +35,36 @@
         }
     }
 
-    /* $emoties is gekoppelt aan getEmoties om tussen de verschillende rijen en loops op de rijen te maken de array te resetten.
-    Dit zorgt er voor dat je per rij 15 unieken konijnen hebt maar wel een array hebt voor de volgende rij om weer konijnen uit te halen. */
-    $emoties = getEmoties();
+/** $emotiesMaster zorgt voor de juiste aantal emoties voor het genereren van 2x rij van 15 konijnen.
+ *  $emotiesMaster is de master array die niet aangepast moet worden om de juiste score te bepalen, $emoties mag gebruikt worden om aan te passen.
+ */
+$emotiesMaster = [
+    "blij" => "(^_^)",
+    "verwonderd" => "(O.O)",
+    "boos" => "(@_@)",
+    "teleurgesteld" => "(>_<)",
+    "verdrietig" => "(T_T)",
+    "slaperig" => "(-_-)",
+    "verliefd" => "(♥‿♥)",
+    "in de war" => "(?_?)",
+    "nadenkend" => "(¬_¬)",
+    "geschrokken" => "(O_O!)",
+    "trots" => "(^‿^)",
+    "verveeld" => "(~_~)",
+    "ondeugend" => "(^.-)",
+    "bang" => "(;_;)",
+    "cool" => "(⌐■.■)"
+];
 
-    function getEmoties() {
-        return [
-        "blij" => "(^_^)",
-        "verwonderd" => "(O.O)",
-        "boos" => "(@_@)",
-        "teleurgesteld" => "(>_<)",
-        "verdrietig" => "(T_T)",
-        "slaperig" => "(-_-)",
-        "verliefd" => "(♥‿♥)",
-        "in de war" => "(?_?)",
-        "nadenkend" => "(¬_¬)",
-        "geschrokken" => "(O_O!)",
-        "trots" => "(^‿^)",
-        "verveeld" => "(~_~)",
-        "ondeugend" => "(^.-)",
-        "bang" => "(;_;)",
-        "cool" => "(⌐■.■)"];
-    }
-        
+$emoties = $emotiesMaster;
+
 //Eerste loop om de eerste rij aan konijnen te maken. 
 $rij1 = []; for ($i = 0; $i < 15; $i++) { 
     $konijn = new Konijn($emoties); 
     $rij1[] = $konijn; } 
     
 //De array van Emoties wordt gereset voor de volgende loop. 
-$emoties = getEmoties(); 
+$emoties = $emotiesMaster; 
 
 //tweede loop om de tweede rij aan konijnen te maken. 
 $rij2 = []; for ($i = 0; $i < 15; $i++) {
